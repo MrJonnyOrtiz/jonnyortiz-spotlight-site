@@ -65,10 +65,19 @@ export const metadata = {
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="Things I’ve done to contribute."
+      intro="I’ve worked on tons of initiatives during my career but here you'll find the narratives showcasing my efforts that made a difference."
     >
-      <ul
+      <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+        Case studies
+      </h1>
+
+      <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        A few examples of programs I’ve led—focused on execution, stakeholder
+        alignment, and measurable operational outcomes.
+      </p>
+
+      {/* <ul
         role="list"
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
@@ -92,7 +101,7 @@ export default function Projects() {
             </p>
           </Card>
         ))}
-      </ul>
+      </ul> */}
     </SimpleLayout>
   )
 }
