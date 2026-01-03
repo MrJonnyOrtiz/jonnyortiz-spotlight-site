@@ -1,17 +1,11 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-} from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 
 function SocialLink({ className, href, children, icon: Icon }) {
+  if (!Icon) return null
   return (
     <li className={clsx(className, 'flex')}>
       <Link
@@ -39,7 +33,7 @@ function MailIcon(props) {
 export const metadata = {
   title: 'About',
   description:
-    'I’m Jonny Ortiz. I live in New York City, where I deliver the future.',
+    "I'm Jonny Ortiz. I fix broken systems of work and solve the messy middle.",
 }
 
 export default function About() {
@@ -48,32 +42,62 @@ export default function About() {
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
         <div className="lg:pl-20">
           <div className="max-w-xs px-2.5 lg:max-w-none">
-            <Image
-              src={portraitImage}
-              alt=""
-              sizes="(min-width: 1024px) 32rem, 20rem"
-              className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-            />
+            <div className="rounded-2xl border border-zinc-100 bg-white/50 p-6 shadow-sm ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:border-zinc-700/40 dark:bg-zinc-800/30">
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                What I’m known for
+              </h2>
+              <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                <li>
+                  <strong className="font-semibold text-zinc-900 dark:text-zinc-100">
+                    Untangling bottlenecks
+                  </strong>
+                  <span className="text-zinc-600 dark:text-zinc-400"> — </span>
+                  Turning cross-functional friction into a clear path forward.
+                </li>
+                <li>
+                  <strong className="font-semibold text-zinc-900 dark:text-zinc-100">
+                    Systems thinking
+                  </strong>
+                  <span className="text-zinc-600 dark:text-zinc-400"> — </span>
+                  Modernizing workflows without breaking downstream
+                  dependencies.
+                </li>
+                <li>
+                  <strong className="font-semibold text-zinc-900 dark:text-zinc-100">
+                    Delivery flow
+                  </strong>
+                  <span className="text-zinc-600 dark:text-zinc-400"> — </span>
+                  Sequencing work into incremental releases that reduce risk.
+                </li>
+                <li>
+                  <strong className="font-semibold text-zinc-900 dark:text-zinc-100">
+                    Adoption + outcomes
+                  </strong>
+                  <span className="text-zinc-600 dark:text-zinc-400"> — </span>
+                  Building alignment, metrics, and habits so change sticks.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Jonny Ortiz. I live in New York City, where I deliver the
-            future.
+            I&apos;m Jonny Ortiz. I fix broken systems of work and solve the
+            messy middle.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’m a Senior Program Manager with a track record of leading
-              cross-functional programs that modernize operational value
-              chains—especially where legacy systems, misaligned incentives, or
+              I&apos;m a New York-based Program Manager with a track record of
+              leading cross-functional programs that modernize operations
+              &mdash; especially where legacy tech, misaligned incentives, or
               manual processes slow teams down.
             </p>
 
             <p>
-              My sweet spot is the messy middle: translating business reality
-              into clear requirements, aligning stakeholders, sequencing
-              delivery, and driving adoption so new capabilities actually stick.
-              I’ve led initiatives spanning workflow redesign, vendor onboarding
+              I thrive in the gray area: translating business reality into clear
+              requirements, aligning stakeholders, sequencing delivery, and
+              driving adoption so new capabilities actually stick. I&apos;ve led
+              initiatives spanning workflow redesign, vendor onboarding
               automation, delivery flow stabilization, and scaled data
               integrations (EDI).
             </p>
@@ -82,20 +106,26 @@ export default function About() {
             </h2>
             <ul className="mt-6 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li>
-                • Start with the work: observation, time-and-motion, data to
-                isolate true bottlenecks.
+                <strong>Diagnose the friction:</strong> I don&apos;t guess. I
+                use direct observation, time-and-motion studies, and data to
+                find where work actually stalls, not just where people say it
+                does.
               </li>
               <li>
-                • Align incentives: clarify owners, inputs/outputs, and decision
-                rights early.
+                <strong>Architect for alignment:</strong> I clarify the "who
+                does what" by defining decision rights and handoffs early,
+                ensuring incentives drive the right behaviors across teams.
               </li>
               <li>
-                • Ship in slices: reduce risk with incremental releases and
-                clear adoption plans.
+                <strong>De-risk through iteration:</strong> I ship in
+                incremental "slices." This allows us to gather real-world
+                feedback, adjust the system, and build momentum without the "big
+                bang" failure risk.
               </li>
               <li>
-                • Measure outcomes: KPIs, feedback loops, and operational
-                readiness to sustain change.
+                <strong>Lock in the gains:</strong> A process isn&apos;t fixed
+                until it&apos;s adopted. I build the KPIs and feedback loops
+                that ensure new systems of work become the permanent standard.
               </li>
             </ul>
           </div>
@@ -103,14 +133,14 @@ export default function About() {
         <div className="lg:pl-20">
           <ul role="list">
             <SocialLink
-              href="https://github.com/mrjonnyortiz"
+              href="https://github.com/MrJonnyOrtiz"
               icon={GitHubIcon}
               className="mt-4"
             >
               Follow on GitHub
             </SocialLink>
             <SocialLink
-              href="https://linkedin.com/in/jonny-ortiz"
+              href="https://www.linkedin.com/in/jonny-ortiz"
               icon={LinkedInIcon}
               className="mt-4"
             >

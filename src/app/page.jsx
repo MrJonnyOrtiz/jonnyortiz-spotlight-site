@@ -1,22 +1,51 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-// import logoAirbnb from '@/images/logos/airbnb.svg'
-// import logoFacebook from '@/images/logos/facebook.svg'
-// import logoPlanetaria from '@/images/logos/planetaria.svg'
-// import logoStarbucks from '@/images/logos/starbucks.svg'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
+
 // import { getAllArticles } from '@/lib/articles'
 // import { formatDate } from '@/lib/formatDate'
+
+// Contact information constants
+const CONTACT_INFO = {
+  email: 'mr.jonny.ortiz@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/jonny-ortiz',
+  github: 'https://github.com/MrJonnyOrtiz',
+}
+
+// Current year for resume
+const CURRENT_YEAR = new Date().getFullYear().toString()
+
+const highlights = [
+  {
+    title: 'Enterprise platform modernization',
+    description:
+      'Redesigned item and order creation workflows to reduce friction, improve data integrity at the source, and drive adoption during a core system modernization.',
+    href: '/projects#workflow-redesign',
+  },
+  {
+    title: 'Vendor onboarding transformation',
+    description:
+      'Aligned Legal, Compliance, Finance, Ops, and IT into a repeatable intake engine—reducing delays and creating scalable enablement.',
+    href: '/projects#vendor-onboarding',
+  },
+  {
+    title: 'Delivery flow stabilization',
+    description:
+      'Smoothed inbound volume by aligning buying behavior with DC capacity through week-based scheduling and exception reporting.',
+    href: '/projects#dc-flow',
+  },
+]
+
+const tiles = [
+  { label: 'Ops modernization', sub: 'Workflow redesign + adoption' },
+  { label: 'Cross-functional intake', sub: 'Vendor onboarding engine' },
+  { label: 'Flow stabilization', sub: 'Capacity + predictability' },
+  { label: 'EDI enablement', sub: 'Partner onboarding + governance' },
+  { label: 'Technical fluency', sub: 'AWS + CI/CD context' },
+]
 
 function MailIcon(props) {
   return (
@@ -72,6 +101,7 @@ function ArrowDownIcon(props) {
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+        className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
   )
@@ -143,14 +173,14 @@ function Contact() {
       </p>
       <div className="mt-6 flex flex-col gap-3">
         <Button
-          href="mailto:mr.jonny.ortiz@gmail.com"
+          href={`mailto:${CONTACT_INFO.email}`}
           variant="secondary"
           className="max-w-full"
         >
           Email me
         </Button>
         <Button
-          href="https://www.linkedin.com/in/jonny-ortiz"
+          href={CONTACT_INFO.linkedin}
           variant="secondary"
           className="max-w-full"
         >
@@ -163,12 +193,12 @@ function Contact() {
 
 function Role({ role }) {
   let startLabel =
-    typeof role.start === 'string' ? role.start : role.start.label
+    typeof role.start === 'string' ? role.start : role.start?.label
   let startDate =
-    typeof role.start === 'string' ? role.start : role.start.dateTime
+    typeof role.start === 'string' ? role.start : role.start?.dateTime
 
-  let endLabel = typeof role.end === 'string' ? role.end : role.end.label
-  let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime
+  let endLabel = typeof role.end === 'string' ? role.end : role.end?.label
+  let endDate = typeof role.end === 'string' ? role.end : role.end?.dateTime
 
   return (
     <li className="flex gap-4">
@@ -207,7 +237,7 @@ function Resume() {
       title: 'Founder / Fractional CIO / Consultant',
       start: '2021',
       initials: 'CR',
-      end: { label: 'Present', dateTime: new Date().getFullYear().toString() },
+      end: { label: 'Present', dateTime: CURRENT_YEAR },
     },
     {
       company: 'State College of Florida (SCF)',
@@ -255,27 +285,30 @@ function Resume() {
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+function Highlight({ title, description, href }) {
+  return (
+    <Card as="article">
+      <Card.Title href={href}>{title}</Card.Title>
+      <Card.Description>{description}</Card.Description>
+      <Card.Cta>View details</Card.Cta>
+    </Card>
+  )
+}
 
+function FocusTiles() {
   return (
     <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {tiles.map((tile) => (
           <div
-            key={image.src}
-            className={clsx(
-              'relative w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
-              rotations[imageIndex % rotations.length],
-            )}
+            key={tile.label}
+            className="rounded-2xl border border-zinc-100 bg-white/50 p-5 shadow-sm ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:border-zinc-700/40 dark:bg-zinc-800/30"
           >
-            <div className="aspect-9/10">
-              <Image
-                src={image}
-                alt=""
-                sizes="(min-width: 640px) 18rem, 11rem"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
+            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+              {tile.label}
+            </div>
+            <div className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+              {tile.sub}
             </div>
           </div>
         ))}
@@ -297,21 +330,25 @@ export default function Home() {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I lead complex initiatives across engineering, operations, and
-            business teams—turning stalled, high-friction processes into
+            business teams &mdash; turning stalled, high-friction processes into
             scalable systems with measurable outcomes.
           </p>
           <ul className="mt-8 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
             <li>
-              • Modernized core merchandising workflows by simplifying UX and
-              process flow to improve adoption and scale.
+              <strong>Operational Scale:</strong> Modernized core merchandising
+              workflows for multi-category catalogs, replacing manual handoffs
+              with a streamlined UX that ensured data integrity at the source.
             </li>
             <li>
-              • Built repeatable onboarding engines that reduced friction across
-              Legal, Compliance, Finance, Ops, and IT.
+              <strong>Cross-Functional Velocity:</strong> Engineered a unified
+              onboarding framework that bridged historically siloed departments,
+              removing bottlenecks for new vendor enrollment to accelerate
+              time-to-market and reduce order submission time.
             </li>
             <li>
-              • Stabilized distribution center intake by smoothing delivery
-              variability and aligning incentives across teams.
+              <strong>Supply Chain Stability:</strong> Stabilized distribution
+              center intake by aligning buyer behavior with warehouse capacity,
+              smoothing out the "bullwhip effect" in the delivery flow.
             </li>
           </ul>
           <div className="mt-6 flex gap-6">
@@ -328,14 +365,25 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <Photos />
+      <FocusTiles />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {/* Articles section */}
-            {/* {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))} */}
+            <div className="space-y-6">
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                Selected work
+              </h2>
+              <div className="space-y-8">
+                {highlights.map((item) => (
+                  <Highlight
+                    key={item.href}
+                    title={item.title}
+                    description={item.description}
+                    href={item.href}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             {/* <Newsletter /> */}
