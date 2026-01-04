@@ -43,8 +43,8 @@ export default function About() {
         <div className="lg:pl-20">
           <div className="max-w-xs px-2.5 lg:max-w-none">
             <div className="rounded-2xl border border-zinc-100 bg-white/50 p-6 shadow-sm ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:border-zinc-700/40 dark:bg-zinc-800/30">
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                What I’m known for
+              <h2 className="text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-zinc-100">
+                What I&apos;m known for
               </h2>
               <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                 <li>
