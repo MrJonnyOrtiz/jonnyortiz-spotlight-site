@@ -1,6 +1,9 @@
+'use client'
+
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { useEffect } from 'react'
 
 const TOOLKIT_SECTIONS = [
   {
@@ -130,6 +133,12 @@ const TOOLKIT_SECTIONS = [
   },
 ]
 
+function trackEvent(name, data) {
+  if (typeof window === 'undefined') return
+  if (!window.fathom || typeof window.fathom.trackEvent !== 'function') return
+  window.fathom.trackEvent(name, data)
+}
+
 function ToolsSection({ children, ...props }) {
   return (
     <Section {...props}>
@@ -151,13 +160,11 @@ function Tool({ title, href, children }) {
   )
 }
 
-export const metadata = {
-  title: 'Toolkit',
-  description:
-    'Tools, templates, and systems I use to align stakeholders, manage risk, and ship measurable outcomes.',
-}
-
 export default function Toolkit() {
+  useEffect(() => {
+    trackEvent('PAGE_TOOLKIT_VIEW')
+  }, [])
+
   return (
     <SimpleLayout
       title="Toolkit"

@@ -1,16 +1,26 @@
+'use client'
+
 import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
+import { useEffect } from 'react'
 
-function SocialLink({ className, href, children, icon: Icon }) {
+function trackEvent(name, data) {
+  if (typeof window === 'undefined') return
+  if (!window.fathom || typeof window.fathom.trackEvent !== 'function') return
+  window.fathom.trackEvent(name, data)
+}
+
+function SocialLink({ className, href, children, icon: Icon, eventName }) {
   if (!Icon) return null
   return (
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+        onClick={() => eventName && trackEvent(eventName)}
       >
         <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
         <span className="ml-4">{children}</span>
@@ -30,13 +40,11 @@ function MailIcon(props) {
   )
 }
 
-export const metadata = {
-  title: 'About',
-  description:
-    "I'm Jonny Ortiz. I fix broken systems of work and solve the messy middle.",
-}
-
 export default function About() {
+  useEffect(() => {
+    trackEvent('PAGE_ABOUT_VIEW')
+  }, [])
+
   return (
     <Container className="mt-16 sm:mt-32">
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -145,6 +153,7 @@ export default function About() {
               href="https://github.com/MrJonnyOrtiz"
               icon={GitHubIcon}
               className="mt-4"
+              eventName="ABOUT_GITHUB_CLICK"
             >
               Follow on GitHub
             </SocialLink>
@@ -152,6 +161,7 @@ export default function About() {
               href="https://www.linkedin.com/in/jonny-ortiz"
               icon={LinkedInIcon}
               className="mt-4"
+              eventName="ABOUT_LINKEDIN_CLICK"
             >
               Follow on LinkedIn
             </SocialLink>
@@ -159,6 +169,7 @@ export default function About() {
               href="mailto:mr.jonny.ortiz@gmail.com"
               icon={MailIcon}
               className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+              eventName="ABOUT_EMAIL_CLICK"
             >
               mr.jonny.ortiz@gmail.com
             </SocialLink>

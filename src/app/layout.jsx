@@ -10,7 +10,7 @@ export const metadata = {
     default: 'Jonny Ortiz - Program Manager',
   },
   description:
-    'I’m Jonny Ortiz, a Senior Program Manager based in New York City specializing in delivering innovative technology solutions.',
+    'I’m Jonny Ortiz, a Senior Program Manager based in New York City. I fix broken systems of work and solve the messy middle.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,

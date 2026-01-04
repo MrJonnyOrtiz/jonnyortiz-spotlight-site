@@ -1,5 +1,7 @@
-import Link from 'next/link'
+'use client'
 
+import Link from 'next/link'
+import { useEffect } from 'react'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
@@ -17,6 +19,13 @@ const CONTACT_INFO = {
 
 // Current year for resume
 const CURRENT_YEAR = new Date().getFullYear().toString()
+
+function trackEvent(name, data) {
+  if (typeof window === 'undefined') return
+  // Fathom attaches `fathom` to window when the script loads
+  if (!window.fathom || typeof window.fathom.trackEvent !== 'function') return
+  window.fathom.trackEvent(name, data)
+}
 
 const highlights = [
   {
@@ -277,6 +286,9 @@ function Resume() {
         href="/JOResume.pdf"
         variant="secondary"
         className="group mt-6 w-full"
+        onClick={() => trackEvent('RESUME_DOWNLOAD_CLICK')}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Download resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
@@ -320,14 +332,35 @@ function FocusTiles() {
 export default function Home() {
   // let articles = (await getAllArticles()).slice(0, 4)
 
+  useEffect(() => {
+    trackEvent('PAGE_HOME_VIEW')
+  }, [])
+
   return (
     <>
-      <Container className="mt-9">
+      <Container className="mt-6">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             I&apos;m Jonny Ortiz, Senior Program Manager driving digital
             modernization and cross-functional delivery.
           </h1>
+
+          <div className="mt-4 flex flex-wrap gap-4">
+            <Button
+              href="/projects"
+              onClick={() => trackEvent('CTA_VIEW_WORK_CLICK')}
+            >
+              View my work
+            </Button>
+            <Button
+              href="/about"
+              variant="secondary"
+              onClick={() => trackEvent('CTA_ABOUT_CLICK')}
+            >
+              About me
+            </Button>
+          </div>
+
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I lead complex initiatives across technical and business teams,
             turning stalled, high-friction processes into scalable systems with
@@ -365,11 +398,13 @@ export default function Home() {
               href="https://github.com/MrJonnyOrtiz"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
+              onClick={() => trackEvent('SOCIAL_GITHUB_CLICK')}
             />
             <SocialLink
               href="https://www.linkedin.com/in/jonny-ortiz"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
+              onClick={() => trackEvent('SOCIAL_LINKEDIN_CLICK')}
             />
           </div>
         </div>

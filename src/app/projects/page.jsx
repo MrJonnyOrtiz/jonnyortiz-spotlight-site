@@ -1,5 +1,14 @@
+'use client'
+
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { useEffect } from 'react'
+
+function trackEvent(name, data) {
+  if (typeof window === 'undefined') return
+  if (!window.fathom || typeof window.fathom.trackEvent !== 'function') return
+  window.fathom.trackEvent(name, data)
+}
 
 function WorkflowIcon(props) {
   return (
@@ -140,13 +149,11 @@ const projects = [
   },
 ]
 
-export const metadata = {
-  title: 'Work',
-  description:
-    'A few examples of programs I’ve led—focused on execution, stakeholder alignment, and measurable operational outcomes.',
-}
-
 export default function Projects() {
+  useEffect(() => {
+    trackEvent('PAGE_WORK_VIEW')
+  }, [])
+
   return (
     <SimpleLayout
       title="Work"
@@ -162,7 +169,16 @@ export default function Projects() {
               <project.icon className="h-6 w-6 text-zinc-400 dark:text-zinc-500" />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              <Card.Link
+                href={project.link.href}
+                onClick={() =>
+                  trackEvent('WORK_CASE_STUDY_NAV_CLICK', {
+                    project: project.name,
+                  })
+                }
+              >
+                {project.name}
+              </Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
             <Card.Cta>{project.link.label}</Card.Cta>
