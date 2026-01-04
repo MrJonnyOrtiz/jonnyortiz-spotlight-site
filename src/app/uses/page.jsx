@@ -9,7 +9,7 @@ const TOOLKIT_SECTIONS = [
       {
         title: 'Value Stream Mapping',
         description:
-          'I map the end-to-end flow of information — from vendor intake to store shelf — to identify and eliminate non-value-added steps and systemic waste.',
+          'I map the end-to-end flow of information to identify and eliminate non-value-added steps and systemic waste.',
       },
       {
         title: 'Theory of Constraints',
@@ -39,7 +39,7 @@ const TOOLKIT_SECTIONS = [
       {
         title: 'Decision log + lightweight documentation',
         description:
-          'I keep teams aligned with concise docs: problem statement, scope, tradeoffs, decisions, and owners — so we don’t re-litigate topics.',
+          'I keep teams aligned with concise docs: problem statement, scope, tradeoffs, decisions, and owners so we don’t re-litigate topics.',
       },
     ],
   },
@@ -54,7 +54,7 @@ const TOOLKIT_SECTIONS = [
       {
         title: 'Decision rights and accountability',
         description:
-          'I help clarify who decides, who executes, and who needs to be informed — reducing ambiguity, late-stage friction, and avoidable rework (RACI-informed).',
+          'I help clarify who decides, who executes, and who needs to be informed, reducing ambiguity, late-stage friction, and avoidable rework (RACI-informed).',
       },
       {
         title: 'Working sessions with pre-reads',
@@ -74,7 +74,7 @@ const TOOLKIT_SECTIONS = [
       {
         title: 'Retail core systems (item, order, and inventory lifecycles)',
         description:
-          'I work in the “messy middle” where legacy logic meets modern workflows — helping translate operational reality into requirements that scale without breaking downstream systems.',
+          'I work in the “messy middle” where legacy logic meets modern workflows, helping translate operational reality into requirements that scale without breaking downstream systems.',
       },
       {
         title: 'EDI + partner enablement',
@@ -99,7 +99,7 @@ const TOOLKIT_SECTIONS = [
       {
         title: 'APIs & integrations (REST + event-driven basics)',
         description:
-          'Helpful context when programs touch multiple systems — improves dependency planning, sequencing, and test strategy.',
+          'Helpful context when programs touch multiple systems - improves dependency planning, sequencing, and test strategy.',
       },
       {
         title: 'GitHub workflows',
@@ -119,7 +119,7 @@ const TOOLKIT_SECTIONS = [
       {
         title: 'Decision-first narratives',
         description:
-          'One-pagers and short decks that connect the “why” to the plan, the tradeoffs, and the ask — optimized for leadership decision-making.',
+          'One-pagers and short decks that connect the “why” to the plan, the tradeoffs, and the ask optimized for leadership decision-making.',
       },
       {
         title: 'Meeting notes with explicit decisions',
@@ -161,7 +161,7 @@ export default function Toolkit() {
   return (
     <SimpleLayout
       title="Toolkit"
-      intro="My experience spans environments with formal program governance, enterprise systems, and hands-on technical delivery. I focus on understanding how these systems operate and using them to drive alignment, manage risk, and deliver measurable outcomes — without over-indexing on any single tool."
+      intro="My experience spans environments with formal program governance, enterprise systems, and hands-on technical delivery. I focus on understanding how these systems operate and using them to drive alignment, manage risk, and deliver measurable outcomes without over-indexing on any single tool."
     >
       <div className="space-y-20">
         {TOOLKIT_SECTIONS.map((section) => (
