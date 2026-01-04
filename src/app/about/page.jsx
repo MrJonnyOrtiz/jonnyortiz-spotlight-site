@@ -105,26 +105,36 @@ export default function About() {
             </h2>
             <ul className="mt-6 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
               <li>
-                <strong>Diagnose the friction:</strong> I don&apos;t guess. I
-                use direct observation, time-and-motion studies, and data to
-                find where work actually stalls, not just where people say it
-                does.
+                <strong className="text-blue-800 dark:text-blue-300">
+                  Diagnose the friction:
+                </strong>{' '}
+                I don&apos;t guess. I use direct observation, time-and-motion
+                studies, and data to find where work actually stalls, not just
+                where people say it does.
               </li>
               <li>
-                <strong>Architect for alignment:</strong> I clarify the "who
-                does what" by defining decision rights and handoffs early,
-                ensuring incentives drive the right behaviors across teams.
+                <strong className="text-blue-800 dark:text-blue-300">
+                  Architect for alignment:
+                </strong>{' '}
+                I clarify the "who does what" by defining decision rights and
+                handoffs early, ensuring incentives drive the right behaviors
+                across teams.
               </li>
               <li>
-                <strong>De-risk through iteration:</strong> I ship in
-                incremental "slices." This allows us to gather real-world
-                feedback, adjust the system, and build momentum without the "big
-                bang" failure risk.
+                <strong className="text-blue-800 dark:text-blue-300">
+                  De-risk through iteration:
+                </strong>{' '}
+                I ship in incremental "slices." This allows us to gather
+                real-world feedback, adjust the system, and build momentum
+                without the "big bang" failure risk.
               </li>
               <li>
-                <strong>Lock in the gains:</strong> A process isn&apos;t fixed
-                until it&apos;s adopted. I build the KPIs and feedback loops
-                that ensure new systems of work become the permanent standard.
+                <strong className="text-blue-800 dark:text-blue-300">
+                  Lock in the gains:
+                </strong>{' '}
+                A process isn&apos;t fixed until it&apos;s adopted. I build the
+                KPIs and feedback loops that ensure new systems of work become
+                the permanent standard.
               </li>
             </ul>
           </div>
