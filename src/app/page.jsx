@@ -302,7 +302,7 @@ function FocusTiles() {
         {tiles.map((tile) => (
           <div
             key={tile.label}
-            className="rounded-2xl border border-zinc-100 bg-white/50 p-5 shadow-sm ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:border-zinc-700/40 dark:bg-zinc-800/30"
+            className="rounded-2xl border border-zinc-100 bg-white/50 p-5 shadow-sm ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur transition-all duration-200 hover:border-blue-700/40 hover:ring-blue-700/20 dark:border-zinc-700/40 dark:bg-zinc-800/30 dark:hover:border-blue-400/40 dark:hover:ring-blue-400/30"
           >
             <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
               {tile.label}
@@ -335,20 +335,29 @@ export default function Home() {
           </p>
           <ul className="mt-8 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
             <li>
-              <strong>Operational Scale:</strong> Modernized core merchandising
-              workflows for multi-category catalogs, replacing manual handoffs
-              with a streamlined UX that ensured data integrity at the source.
+              <strong className="text-blue-800 dark:text-blue-300">
+                Operational Scale:
+              </strong>
+              &nbsp; Modernized core merchandising workflows for multi-category
+              catalogs, replacing manual handoffs with a streamlined UX that
+              ensured data integrity at the source.
             </li>
             <li>
-              <strong>Cross-Functional Velocity:</strong> Designed a unified
-              onboarding framework that bridged historically siloed departments,
-              removing bottlenecks for new vendor enrollment to accelerate
-              time-to-market and reduce order submission time.
+              <strong className="text-blue-800 dark:text-blue-300">
+                Cross-Functional Velocity:
+              </strong>
+              &nbsp; Designed a unified onboarding framework that bridged
+              historically siloed departments, removing bottlenecks for new
+              vendor enrollment to accelerate time-to-market and reduce order
+              submission time.
             </li>
             <li>
-              <strong>Supply Chain Stability:</strong> Stabilized distribution
-              center intake by aligning buyer behavior with warehouse capacity,
-              smoothing out the "bullwhip effect" in the delivery flow.
+              <strong className="text-blue-800 dark:text-blue-300">
+                Supply Chain Stability:
+              </strong>
+              &nbsp; Stabilized distribution center intake by aligning buyer
+              behavior with warehouse capacity, smoothing out the "bullwhip
+              effect" in the delivery flow.
             </li>
           </ul>
           <div className="mt-6 flex gap-6">
@@ -370,7 +379,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             <div className="space-y-6">
-              <h2 className="text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-zinc-100">
+              <h2 className="text-sm font-semibold tracking-widest text-blue-800 uppercase dark:text-blue-300">
                 Strategic Impact
               </h2>
               <div className="space-y-8">
