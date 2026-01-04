@@ -28,7 +28,7 @@ const highlights = [
   {
     title: 'Vendor onboarding transformation',
     description:
-      'Aligned Legal, Compliance, Finance, Ops, and IT into a repeatable intake engine—reducing delays and creating scalable enablement.',
+      'Aligned Legal, Compliance, Finance, Ops, and IT into a repeatable intake engine reducing delays and creating scalable enablement.',
     href: '/projects#vendor-onboarding',
   },
   {
@@ -164,7 +164,7 @@ function SocialLink({ icon: Icon, ...props }) {
 function Contact() {
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 lg:p-8 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 className="flex text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Contact</span>
       </h2>
@@ -264,7 +264,7 @@ function Resume() {
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+      <h2 className="flex text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Work</span>
       </h2>
@@ -325,13 +325,13 @@ export default function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Senior Program Manager driving digital modernization and
-            cross-functional delivery.
+            I&apos;m Jonny Ortiz, Senior Program Manager driving digital
+            modernization and cross-functional delivery.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I lead complex initiatives across engineering, operations, and
-            business teams &mdash; turning stalled, high-friction processes into
-            scalable systems with measurable outcomes.
+            I lead complex initiatives across technical and business teams,
+            turning stalled, high-friction processes into scalable systems with
+            measurable outcomes.
           </p>
           <ul className="mt-8 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
             <li>
@@ -340,7 +340,7 @@ export default function Home() {
               with a streamlined UX that ensured data integrity at the source.
             </li>
             <li>
-              <strong>Cross-Functional Velocity:</strong> Engineered a unified
+              <strong>Cross-Functional Velocity:</strong> Designed a unified
               onboarding framework that bridged historically siloed departments,
               removing bottlenecks for new vendor enrollment to accelerate
               time-to-market and reduce order submission time.
@@ -370,8 +370,8 @@ export default function Home() {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             <div className="space-y-6">
-              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                Selected work
+              <h2 className="text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-zinc-100">
+                Strategic Impact
               </h2>
               <div className="space-y-8">
                 {highlights.map((item) => (
