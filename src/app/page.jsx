@@ -222,12 +222,17 @@ function Contact() {
           >
             <span className="flex items-center gap-2">
               <svg
-                viewBox="0 0 16 16"
+                viewBox="0 0 24 24"
                 fill="none"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="h-4 w-4 stroke-zinc-400"
+                aria-hidden="true"
               >
-                <path d="M5.75 4.75H10.25V11.25H5.75V4.75Z" strokeWidth="1.5" />
-                <path d="M3.75 6.75H5.75V13.25H3.75V6.75Z" strokeWidth="1.5" />
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                <path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2" />
+                <path d="M9 5h6" />
               </svg>
               {copied ? (
                 <span className="text-xs font-bold text-teal-500">Copied!</span>
