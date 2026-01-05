@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
@@ -171,6 +171,24 @@ function SocialLink({ icon: Icon, ...props }) {
 // }
 
 function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyToClipboard = async () => {
+    if (copied) return
+
+    try {
+      await navigator.clipboard.writeText(CONTACT_INFO.email)
+      setCopied(true)
+      trackEvent('CONTACT_EMAIL_COPY')
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setCopied(false)
+      trackEvent('CONTACT_EMAIL_COPY_FALLBACK')
+      // last resort fallback
+      window.prompt('Copy this email address:', CONTACT_INFO.email)
+    }
+  }
+
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 lg:p-8 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold tracking-widest text-zinc-900 uppercase dark:text-zinc-100">
@@ -181,17 +199,52 @@ function Contact() {
         The best way to reach me is via email or LinkedIn.
       </p>
       <div className="mt-6 flex flex-col gap-3">
-        <Button
-          href={`mailto:${CONTACT_INFO.email}`}
-          variant="secondary"
-          className="max-w-full"
-        >
-          Email me
-        </Button>
+        <div className="flex max-w-full gap-2">
+          <Button
+            href={`mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(
+              'Inquiry from jonnyortiz.com',
+            )}&body=${encodeURIComponent(
+              'Hi Jonny,\n\nI would like to connect regarding...',
+            )}`}
+            variant="secondary"
+            className="flex-1"
+            onClick={() => trackEvent('CONTACT_EMAIL_CLICK')}
+          >
+            Email me
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={copyToClipboard}
+            className="flex-none px-3"
+            aria-label="Copy email address"
+            title="Copy email address"
+            disabled={copied}
+          >
+            <span className="flex items-center gap-2">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                className="h-4 w-4 stroke-zinc-400"
+              >
+                <path d="M5.75 4.75H10.25V11.25H5.75V4.75Z" strokeWidth="1.5" />
+                <path d="M3.75 6.75H5.75V13.25H3.75V6.75Z" strokeWidth="1.5" />
+              </svg>
+              {copied ? (
+                <span className="text-xs font-bold text-teal-500">Copied!</span>
+              ) : null}
+              <span className="sr-only" aria-live="polite">
+                {copied ? 'Email address copied to clipboard' : ''}
+              </span>
+            </span>
+          </Button>
+        </div>
         <Button
           href={CONTACT_INFO.linkedin}
           variant="secondary"
           className="max-w-full"
+          onClick={() => trackEvent('CONTACT_LINKEDIN_CLICK')}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Connect on LinkedIn
         </Button>
@@ -279,7 +332,10 @@ function Resume() {
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role) => (
-          <Role key={`${role.initials}-${role.start}`} role={role} />
+          <Role
+            key={`${role.initials}-${role.start}-${role.title}`}
+            role={role}
+          />
         ))}
       </ol>
       <Button
@@ -297,10 +353,12 @@ function Resume() {
   )
 }
 
-function Highlight({ title, description, href }) {
+function Highlight({ title, description, href, onClick }) {
   return (
     <Card as="article">
-      <Card.Title href={href}>{title}</Card.Title>
+      <Card.Title href={href} onClick={onClick}>
+        {title}
+      </Card.Title>
       <Card.Description>{description}</Card.Description>
       <Card.Cta>View details</Card.Cta>
     </Card>
@@ -399,12 +457,16 @@ export default function Home() {
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
               onClick={() => trackEvent('SOCIAL_GITHUB_CLICK')}
+              target="_blank"
+              rel="noopener noreferrer"
             />
             <SocialLink
               href="https://www.linkedin.com/in/jonny-ortiz"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
               onClick={() => trackEvent('SOCIAL_LINKEDIN_CLICK')}
+              target="_blank"
+              rel="noopener noreferrer"
             />
           </div>
         </div>
@@ -424,6 +486,12 @@ export default function Home() {
                     title={item.title}
                     description={item.description}
                     href={item.href}
+                    onClick={() =>
+                      trackEvent('HOME_HIGHLIGHT_CLICK', {
+                        highlight: item.title,
+                        href: item.href,
+                      })
+                    }
                   />
                 ))}
               </div>
