@@ -212,7 +212,7 @@ export default function Projects() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                What I did
+                Action
               </h3>
               <ul className="mt-2 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <li>
@@ -272,7 +272,7 @@ export default function Projects() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                What I did
+                Action
               </h3>
               <ul className="mt-2 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <li>
@@ -335,7 +335,7 @@ export default function Projects() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                What I did
+                Action
               </h3>
               <ul className="mt-2 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <li>
@@ -398,7 +398,7 @@ export default function Projects() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                What I did
+                Action
               </h3>
               <ul className="mt-2 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
                 <li>
