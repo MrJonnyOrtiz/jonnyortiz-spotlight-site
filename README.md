@@ -1,11 +1,35 @@
 # Jonny Ortiz Portfolio
 
+**Senior Program Manager** specializing in cross-functional delivery, operational modernization, and enterprise system integrations. This portfolio demonstrates technical fluency through a production-ready Next.js application with AWS deployment automation.
+
+**Live Site:** [jonnyortiz.com](https://jonnyortiz.com)
+
 Personal portfolio website built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com), based on the Spotlight template from [Tailwind Plus](https://tailwindcss.com/plus).
 
 ## Prerequisites
 
 - Node.js v16 or higher
 - AWS CLI
+
+## Skills Demonstrated
+
+**Program Management & Delivery:**
+
+- Cross-functional stakeholder alignment
+- Technical requirements translation
+- Risk management and dependency tracking
+
+**Technical Implementation:**
+
+- React/Next.js development with static export optimization
+- AWS S3/CloudFront deployment automation
+- CI/CD workflow design and documentation
+
+**Systems Thinking:**
+
+- Legacy system modernization approach
+- Performance optimization (static export for CDN caching)
+- Scalable architecture decisions
 
 ## Getting started
 
@@ -56,7 +80,7 @@ The site uses Next.js static export for deployment to AWS S3/CloudFront. Edit th
 ## Project Status
 
 Status: ✅ Live & Maintained
-Launch Date: January 5, 2025
+Launch Date: January 5, 2026
 Current Version: Production-ready personal portfolio
 
 Features:
