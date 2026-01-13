@@ -1,42 +1,93 @@
-# Spotlight
+# Jonny Ortiz Portfolio
 
-Spotlight is a [Tailwind Plus](https://tailwindcss.com/plus) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+Personal portfolio website built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com), based on the Spotlight template from [Tailwind Plus](https://tailwindcss.com/plus).
+
+## Prerequisites
+
+- Node.js v16 or higher
+- AWS CLI
 
 ## Getting started
 
-To get started with this template, first install the npm dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Next, create a `.env.local` file in the root of your project and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
+Create a `.env.local` file:
 
 ```
-NEXT_PUBLIC_SITE_URL=https://example.com
+NEXT_PUBLIC_SITE_URL=https://jonnyortiz.com
 ```
 
-Next, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-## Customizing
+## Static Export Modifications
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+This portfolio has been modified from the original Spotlight template for static deployment:
+
+- **Static export enabled** - `output: 'export'` in next.config.mjs
+- **Image optimization disabled** - For S3/CloudFront compatibility
+- **Client-side components** - Added `'use client'` directives where needed
+- **Articles system disabled** - Moved to `_disabled/` folder
+- **Analytics integration** - Client-side Fathom tracking
+
+These changes enable deployment to AWS S3 as a fully static site with CDN caching.
+
+## Development
+
+The site uses Next.js static export for deployment to AWS S3/CloudFront. Edit this template by modifying the files in the `/src` folder. Key files:
+
+`/src/app/` - App Router pages and layouts
+
+`/src/components/` - Reusable React components
+
+`/src/images/` - Static images and assets
+
+`/public/` - Public assets (resume PDF, etc.)
+
+## Project Status
+
+Status: ✅ Live & Maintained
+Launch Date: January 5, 2025
+Current Version: Production-ready personal portfolio
+
+Features:
+
+✅ Responsive design with dark/light theme
+
+✅ Project showcase with case studies
+
+✅ About page with professional background
+
+✅ Toolkit/skills documentation
+
+✅ Contact integration with analytics
+
+✅ Resume download functionality
+
+✅ AWS S3/CloudFront deployment
+
+Maintenance: Active - Regular content updates and improvements as needed.
+
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+## Tech Stack
+
+- [Tailwind CSS](https://tailwindcss.com/docs) - Utility-first CSS framework
+- [Next.js](https://nextjs.org/docs) - React framework with static export
+- [Headless UI](https://headlessui.dev) - Unstyled accessible UI components
+- [MDX](https://mdxjs.com) - Markdown with JSX components
 
 ## License
 
 This site template is a commercial product and is licensed under the [Tailwind Plus license](https://tailwindcss.com/plus/license).
-
-## Learn more
-
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
-- [MDX](https://mdxjs.com) - the MDX documentation
