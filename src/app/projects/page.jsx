@@ -157,8 +157,49 @@ export default function Projects() {
   return (
     <SimpleLayout
       title="Work"
-      intro="A few examples of programs I’ve led focused on execution, stakeholder alignment, and measurable operational outcomes."
+      intro="A few examples of programs I’ve led focused on execution, stakeholder alignment, and measurable operational outcomes. If you’re evaluating fit, start with the quick links below."
     >
+      {/* Quick CTA for recruiters / hiring managers + intent segmentation for peers */}
+      <div className="mb-10 rounded-2xl border border-zinc-100 bg-white p-4 shadow-sm dark:border-zinc-700/40 dark:bg-zinc-900">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+              Quick links
+            </h2>
+            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+              For a quick look at my background and fit, you’ll find the
+              essentials right here.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/resume"
+              className="inline-flex items-center rounded-full bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+              onClick={() => trackEvent('WORK_CTA_RESUME_CLICK')}
+            >
+              Download resume
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+              onClick={() => trackEvent('WORK_CTA_CONTACT_CLICK')}
+            >
+              Contact
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jonny-ortiz/"
+              className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
+              onClick={() => trackEvent('WORK_CTA_LINKEDIN_CLICK')}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
       <ul
         role="list"
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
