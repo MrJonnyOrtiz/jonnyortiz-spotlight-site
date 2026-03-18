@@ -183,7 +183,7 @@ export default function Projects() {
               Download resume
             </a>
             <a
-              href="mailto:mr.jonny.ortiz@gmail.com?subject=Inquiry%20from%20jonnyortiz.com&body=Hi%20Jonny%2C%0A%0AI%20would%20like%20to%20connect%20regarding..."
+              href="/#contact"
               className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
               onClick={() => trackEvent('WORK_CTA_CONTACT_CLICK')}
             >

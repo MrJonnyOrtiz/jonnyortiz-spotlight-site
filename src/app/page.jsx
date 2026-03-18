@@ -512,7 +512,9 @@ export default function Home() {
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             {/* <Newsletter /> */}
-            <Contact />
+            <div id="contact" className="scroll-mt-24">
+              <Contact />
+            </div>
             <Resume />
           </div>
         </div>
