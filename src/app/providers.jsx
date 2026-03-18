@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useEffect, useRef } from 'react'
+import { createContext, useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { ThemeProvider, useTheme } from 'next-themes'
 
@@ -40,16 +40,30 @@ function ThemeWatcher() {
 
 export const AppContext = createContext({})
 
+function ThemeProviderMounted({ children }) {
+  let [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return children
+
+  return (
+    <ThemeProvider attribute="class" disableTransitionOnChange>
+      <ThemeWatcher />
+      {children}
+    </ThemeProvider>
+  )
+}
+
 export function Providers({ children }) {
   let pathname = usePathname()
   let previousPathname = usePrevious(pathname)
 
   return (
     <AppContext.Provider value={{ previousPathname }}>
-      <ThemeProvider attribute="class" disableTransitionOnChange>
-        <ThemeWatcher />
-        {children}
-      </ThemeProvider>
+      <ThemeProviderMounted>{children}</ThemeProviderMounted>
     </AppContext.Provider>
   )
 }
