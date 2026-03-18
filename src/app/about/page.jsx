@@ -94,10 +94,10 @@ export default function About() {
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I&apos;m a New York-based Senior Program Manager with a track
-              record of leading cross-functional programs that modernize
-              operations, especially where legacy tech, misaligned incentives,
-              or manual processes slow teams down.
+              I&apos;m a New York-based Senior Program Manager &amp; Retail
+              Consultant with a track record of leading cross-functional
+              programs that modernize operations, especially where legacy tech,
+              misaligned incentives, or manual processes slow teams down.
             </p>
 
             <p>

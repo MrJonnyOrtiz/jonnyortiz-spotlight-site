@@ -49,11 +49,11 @@ const highlights = [
 ]
 
 const tiles = [
-  { label: 'Ops modernization', sub: 'Workflow redesign + adoption' },
-  { label: 'Cross-functional intake', sub: 'Vendor onboarding engine' },
-  { label: 'Flow stabilization', sub: 'Capacity + predictability' },
+  { label: 'Retail Strategy', sub: 'Modernization & Digital Transformation' },
+  { label: 'Ops Modernization', sub: 'Workflow redesign + adoption' },
+  { label: 'Supply Chain', sub: 'Bullwhip effect + flow stabilization' },
   { label: 'EDI enablement', sub: 'Partner onboarding + governance' },
-  { label: 'Technical fluency', sub: 'AWS + CI/CD context' },
+  { label: 'Technical TPM', sub: 'AWS, CI/CD context, + Full-stack fluency' },
 ]
 
 function MailIcon(props) {
@@ -403,10 +403,18 @@ export default function Home() {
     <>
       <Container className="mt-6">
         <div className="max-w-2xl">
+          {/* Hero */}
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I&apos;m Jonny Ortiz, Senior Program Manager driving digital
-            modernization and cross-functional delivery.
+            I’m Jonny Ortiz. <br />
+            <span className="mt-2 block text-3xl text-zinc-600 sm:text-4xl dark:text-zinc-400">
+              Senior Program Manager &amp; Retail Consultant
+            </span>
           </h1>
+
+          {/* Value Proposition */}
+          <p className="mt-6 text-lg font-medium text-zinc-700 dark:text-zinc-300">
+            Bridging the gap between business strategy and technical execution.
+          </p>
 
           <div className="mt-4 flex flex-wrap gap-4">
             <Button
