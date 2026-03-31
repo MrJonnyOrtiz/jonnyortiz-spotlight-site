@@ -30,6 +30,9 @@ export const metadata = {
       'Senior Program Manager & Retail Consultant. I fix broken systems of work and solve the messy middle.',
     images: ['/og-image.png'],
   },
+  verification: {
+    google: 'bfZOmxF9boNoa1LWbqhFJA0CNs6HVWva9r_mDRry-_w',
+  },
 }
 
 export default function RootLayout({ children }) {
